@@ -1,0 +1,14 @@
+variable "managed_disk_name" {}
+variable "developer_spoke_asg_resource_group_name" {}
+variable "developer_vm_resource_group_name" {}
+variable "developer_vm_name" {}
+variable "developer_vm_instance_count" {}
+variable "developer_vm_size" {}
+variable "developer_vm_admin_username" {}
+variable "developer_vm_admin_password" {}
+variable "developer_vm_os_type" {}
+variable "developer_vm_gallery_image_version" {}
+variable "developer_vm_gallery_image_name" {}
+variable "developer_vm_gallery_name" {}
+variable "developer_vm_gallery_image_resource_group_name" {}
+variable "developer_spoke_asg_name" {}

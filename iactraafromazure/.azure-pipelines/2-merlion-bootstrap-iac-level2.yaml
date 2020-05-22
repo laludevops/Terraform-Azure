@@ -1,0 +1,22 @@
+trigger: none
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: buildtools
+
+variables:
+- group: common
+- name: vmImage
+  value: 'ubuntu-latest'
+- name: workingDirectory
+  value: '$(System.DefaultWorkingDirectory)'
+- name: tfContext
+  value: ''
+stages:
+# stage 2: deploy level-2 templates
+- template: .azure-pipelines-v2/templates/stages/merlion-bootstrap/iac-tf-build-level2.yml@templates
+  parameters:
+    vmImage: $(vmImage)
+    azureSubscription: $(azureSubscription)
+    tfContextpath: '02-azure-component'

@@ -1,0 +1,36 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: docker run -v $PWD:/opt -w /opt/01-tf-state hashicorp/terraform init
+  displayName: 'Terraform Init 01-tf-state'
+  workingDirectory: $(system.defaultWorkingDirectory)
+
+- script: |
+    echo Working directory: $PWD
+    docker run --rm -v $PWD:/opt -w /opt/01-tf-state hashicorp/terraform validate
+  displayName: 'Terraform Validate 01-tf-state'
+  workingDirectory: $(system.defaultWorkingDirectory)
+
+- script: docker run -v $PWD:/opt -w /opt/02-azure-component hashicorp/terraform init
+  displayName: 'Terraform Init 02-azure-component'
+  workingDirectory: $(system.defaultWorkingDirectory)
+
+- script: |
+    echo Working directory: $PWD
+    docker run --rm -v $PWD:/opt -w /opt/02-azure-component hashicorp/terraform validate
+  displayName: 'Terraform Validate 02-azure-component'
+  workingDirectory: $(system.defaultWorkingDirectory)
+
+- script: docker run -v $PWD:/opt -w /opt/04-kubernetes hashicorp/terraform init
+  displayName: 'Terraform Init 04-kubernetes'
+  workingDirectory: $(system.defaultWorkingDirectory)
+
+- script: |
+    echo Working directory: $PWD
+    docker run --rm -v $PWD:/opt -w /opt/04-kubernetes hashicorp/terraform validate
+  displayName: 'Terraform Validate 04-kubernetes'
+  workingDirectory: $(system.defaultWorkingDirectory)

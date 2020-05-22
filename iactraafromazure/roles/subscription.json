@@ -1,0 +1,24 @@
+{
+    "Name": "Azure DevOps Deployment -subscription- system-assigned managed identity",
+    "IsCustom": true,
+    "Description": "For Azure Managed Identity deployment only.",
+    "Actions": [
+        "Microsoft.Network/applicationGateways/read",
+        "Microsoft.Network/connections/read",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/localNetworkGateways/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkSecurityGroups/read",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/routeTables/read",
+        "Microsoft.Network/virtualNetworkGateways/read",
+        "Microsoft.Network/virtualNetworks/read"
+    ],
+    "NotActions": [
+    ],
+    "DataActions": [],
+    "NotDataActions": [],
+    "AssignableScopes": [
+        "/subscriptions/c6e005c4-b5a3-450d-af71-4732b55d4471"
+    ]
+}

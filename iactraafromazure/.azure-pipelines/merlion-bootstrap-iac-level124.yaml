@@ -1,0 +1,41 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: buildtools
+
+variables:
+- group: common
+- name: vmImage
+  value: 'ubuntu-latest'
+- name: workingDirectory
+  value: '$(System.DefaultWorkingDirectory)'
+- name: tfContext
+  value: ''
+  
+stages:
+# stage 1: deploy level-1 templates
+- template: .azure-pipelines-v2/templates/stages/merlion-bootstrap/iac-tf-build-level1.yml@templates
+  parameters:
+    vmImage: $(vmImage)
+    azureSubscription: $(azureSubscription)
+    tfContextpath: '01-tf-state'
+
+# stage 2: deploy level-2 templates
+- template: .azure-pipelines-v2/templates/stages/merlion-bootstrap/iac-tf-build-level2.yml@templates
+  parameters:
+    vmImage: $(vmImage)
+    azureSubscription: $(azureSubscription)
+    tfContextpath: '02-azure-component'
+
+# stage 3: deploy level-4 templates
+- template: .azure-pipelines-v2/templates/stages/merlion-bootstrap/iac-tf-build-level4.yml@templates
+  parameters:
+    vmImage: $(vmImage)
+    azureSubscription: $(azureSubscription)
+    tfContextpath: '04-kubernetes'
+
+# stage 4: Create Azure devops variable groups from terraform output
+- template: .azure-pipelines-v2/templates/stages/merlion-bootstrap/merlion-variable-groups.yml@templates
+  parameters:
+    vmImage: $(vmImage)

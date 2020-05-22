@@ -1,0 +1,31 @@
+developer_spoke_asg_resource_group_name = "cmt-21090008"
+resource_group_name                     = "v2-l2-dev-spoke-test"
+location                                = "southeastasia"
+ds_zone_name                            = "cmn"
+ds_zone_vnet_name                       = "v2-l2-dev-spoke-vnet-test"
+ds_zone_subnet_name                     = "v2-l2-dev-spoke-snet-test"
+ds_zone_network_security_group_name     = "v2-l2-dev-spoke-nsg"
+loga_id                                 = "/subscriptions/c6e005c4-b5a3-450d-af71-4732b55d4471/resourcegroups/rg-lz-iac/providers/microsoft.operationalinsights/workspaces/loga-irasgcc-dev-z1-web-mad-001"
+ds_tier_name                            = "na"
+ds_name                                 = ""
+ds_instance_count                       = 2
+ds_size                                 = "Standard_D4s_v3"
+ds_fqdn                                 = "example"
+ds_admin_username                       = "admin123"
+ds_admin_password                       = "adMin%6541"
+ds_image = {
+  publisher = "MicrosoftWindowsServer"
+  offer     = "WindowsServer"
+  sku       = "2019-Datacenter"
+  version   = "latest"
+}
+managed_disk_name = ""
+#keyvault_id            = "/subscriptions/c6e005c4-b5a3-450d-af71-4732b55d4471/resourceGroups/rg-iaz-lz-dev/providers/Microsoft.KeyVault/vaults/akvirasisdsdeveznavt"
+naming_convention_info = {
+  "name"         = ""
+  "agency_code"  = ""
+  "project_code" = "irin"
+  "env"          = "dv"
+}
+asg_name   = "001"
+ds_os_type = "windows"

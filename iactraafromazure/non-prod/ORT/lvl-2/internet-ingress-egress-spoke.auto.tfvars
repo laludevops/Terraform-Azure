@@ -1,0 +1,57 @@
+internet_lb_resource_group_name = "rg_ort_internet_palo_alto"
+
+internet_palo_vm_instance_count = 2
+internet_palo_vm_size="Standard_DS3_v2"
+internet_palo_lb_sku="Standard"
+
+internet_ig_eg_palo_alto_name = "pa"
+
+internet_ingress_egress_asg_resource_group_name="rg_cmt-21090011_nsgasg"
+
+internet_palo_vm_resource_group_name="rg_ort_internet_palo_alto"
+internet_palo_vm_image_publisher="paloaltonetworks"
+internet_palo_vm_image_offer="vmseries1"
+internet_palo_vm_image_sku="byol"
+internet_palo_vm_image_version="latest"
+internet_palo_vm_marketplace_name="byol"
+internet_palo_vm_marketplace_publisher="paloaltonetworks"
+internet_palo_vm_marketplace_product="vmseries1"
+
+internet_palo_vm_admin_username="admin123"
+internet_palo_vm_admin_password="irasgcc@12345"
+
+internet_palo_vm_disable_password_authentication="true"
+internet_palo_vm_license_type=""
+internet_palo_vm_os_type="linux"
+internet_palo_vm_boot_diagnostics="true"
+
+internet_palo_lb_rules_probe_port="443"
+internet_palo_lb_rules_probe_protocol="Tcp"
+internet_palo_lb_rules_lb_port="80"
+internet_palo_lb_rules_backend_port="80"
+internet_palo_lb_rules_load_distribution="Default"
+internet_palo_lb_rules_idle_timeout_in_minutes="4"
+internet_palo_lb_public_ip_address_id=""
+internet_palo_lb_static_ip=""
+
+internet_ingress_egress_pip_name="pippalo"
+
+internet_ig_eg_palo_alto_nic_trust_name = "eg"
+internet_ig_eg_palo_alto_nic_management_name = "tmt"
+internet_ig_eg_palo_alto_nic_untrust_name = "ig"
+
+
+internet_ingress_egress_lb_name="v2lbpalo"
+internet_ingress_egress_lb_rules_probe_port="443"
+internet_ingress_egress_lb_rules_probe_protocol="Tcp"
+internet_ingress_egress_lb_rules_lb_port="443"
+internet_ingress_egress_lb_rules_backend_port="443"
+internet_ingress_egress_lb_rules_load_distribution="Default"
+internet_ingress_egress_lb_rules_idle_timeout_in_minutes="4"
+internet_ingress_egress_lb_public_ip_address_id=""
+internet_ingress_egress_lb_static_ip=""
+internet_ig_eg_palo_alto_management_asg_name="tmt"
+internet_ig_eg_palo_alto_trust_asg_name="eg"
+internet_ig_eg_palo_alto_untrust_asg_name="ig"
+
+

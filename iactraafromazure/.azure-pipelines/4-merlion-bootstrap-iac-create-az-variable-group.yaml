@@ -1,0 +1,18 @@
+trigger: none
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: buildtools
+
+variables:
+- group: common
+- name: vmImage
+  value: 'ubuntu-latest'
+- name: workingDirectory
+  value: '$(System.DefaultWorkingDirectory)'
+stages:
+# stage : Create Azure devops variable groups from terraform output
+- template: .azure-pipelines-v2/templates/stages/merlion-bootstrap/merlion-variable-groups.yml@templates
+  parameters:
+    vmImage: $(vmImage)
